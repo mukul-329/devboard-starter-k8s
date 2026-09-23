@@ -1,0 +1,22 @@
+kind: Deployments
+apiVersion: apps/v1
+metadata:
+  name: frontend
+  namespace: devboard
+spec: 
+  replicas: 1
+  selector: 
+     matchLabels:
+       devboard: frontend
+  template:
+     metadata:
+       name: frontend-pod
+       labels:
+          devboard: frontend
+       spec:
+          containers: 
+             - name: frontend-container
+               image: <image-name>               #Image name from registry
+               ports:
+               - containerPort: <port-number>    #Container Port number to expose.
+  
