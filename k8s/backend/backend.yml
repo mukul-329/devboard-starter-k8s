@@ -1,10 +1,10 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: backend
+  name: backend-deployment
   namespace: devboard
 spec: 
-  replicas: 1
+  replicas: 3
   selector: 
      matchLabels:
        devboard: backend
@@ -19,4 +19,17 @@ spec:
                image: <image-name>               #Image name from registry
                ports:
                - containerPort: <port-number>    #Container Port number to expose.
-  
+               env: 
+                 - name: DATABASE_URL
+                   value: <database-name>://$(DATABASE_USERNAME):$(DATABASE_PASSWORD)@database:<port-number>/devboard?sslmode=disable     ##for e.g. postgres://devboard:devboard@localhost:5432/devboard?sslmode=disable
+                   
+                 - name: DATABASE_USERNAME
+                   valueFrom:
+                     secretKeyRef:
+                      name: secret
+                      key: <key-name-1>
+                 - name: DATABASE_PASSWORD
+                   valueFrom:
+                   secretKeyRef:
+                      name: secret
+                      key: <key-name-2>  

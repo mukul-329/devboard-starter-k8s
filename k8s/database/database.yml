@@ -1,11 +1,11 @@
 kind: StatefulSet
 apiVersion: apps/v1
 metadata:
-  name: database
+  name: database-deployment
   namespace: devboard
 spec:
   serviceName: database-svc                  # will review this
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       devboard: database
@@ -21,16 +21,15 @@ spec:
           ports: 
             - containerPort: <port-number>     #database port
           env:
-            - name: MONGO_INITDB_ROOT_USERNAME
+            - name: DATABASE_USERNAME
               valueFrom:
                 secretKeyRef:
                  name: secret
                  key: <key-name-1>
-            - name: MONGO_INITDB_ROOT_PASSWORD
+            - name: DATABASE_PASSWORD
               valueFrom:
                 secretKeyRef:
                  name: secret
-                 key: <key-name-2>     
-           
+                 key: <key-name-2>    
           
    
