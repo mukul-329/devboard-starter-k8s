@@ -1,7 +1,7 @@
 kind: Service
 apiVersion: v1
 metadata: 
-  name: frontend-deployment
+  name: frontend
   namespace: devboard
 spec:
   type: NodePort
