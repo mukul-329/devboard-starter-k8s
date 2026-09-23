@@ -1,7 +1,7 @@
 kind: Service
 apiVersion: v1
 metadata: 
-  name: database-svc
+  name: database
   namespace: devboard
 spec:
   type: ClusterIP
