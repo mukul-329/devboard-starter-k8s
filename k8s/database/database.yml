@@ -1,7 +1,7 @@
 kind: StatefulSet
 apiVersion: apps/v1
 metadata:
-  name: database
+  name: database-deployment
   namespace: devboard
 spec:
   serviceName: database-svc                  # will review this
