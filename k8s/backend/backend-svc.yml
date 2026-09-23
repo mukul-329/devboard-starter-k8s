@@ -1,7 +1,7 @@
 kind: Service
 apiVersion: v1
 metadata: 
-  name: backend-svc
+  name: backend
   namespace: devboard
 spec:
   type: ClusterIP
