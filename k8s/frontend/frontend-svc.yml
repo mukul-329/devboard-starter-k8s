@@ -11,4 +11,4 @@ spec:
     - protocol: TCP
       port: <port-number>           #Internal port services needed for ClusterIP
       targetPort: <port-number>     #Container port
-      NodePort: <port-number>       #Port exposed on all nodes.
+      nodePort: <port-number>       #Port exposed on all nodes.
