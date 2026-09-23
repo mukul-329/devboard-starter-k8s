@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata: 
+  name: frontend-svc
+  namespace: devboard
+spec:
+  type: NodePort
+  selector: 
+    devboard: frontend
+  ports:
+    - protocol: TCP
+      port: <port-number>           #Internal port services needed for ClusterIP
+      targetPort: <port-number>     #Container port
+      nodePort: <port-number>       #Port exposed on all nodes.
