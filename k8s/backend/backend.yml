@@ -21,5 +21,15 @@ spec:
                - containerPort: <port-number>    #Container Port number to expose.
                env: 
                  - name: DATABASE_URL
-                   value: postgres://$():$()@database:<port-number>/devboard?sslmode=disable
-  
+                   value: <database-name>://$(DATABASE_USERNAME):$(DATABASE_PASSWORD)@database:<port-number>/devboard?sslmode=disable     ##for e.g. postgres://devboard:devboard@localhost:5432/devboard?sslmode=disable
+                   
+                 - name: DATABASE_USERNAME
+                   valueFrom:
+                     secretKeyRef:
+                      name: secret
+                      key: <key-name-1>
+                 - name: DATABASE_PASSWORD
+                   valueFrom:
+                   secretKeyRef:
+                      name: secret
+                      key: <key-name-2>  
