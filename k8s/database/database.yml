@@ -5,7 +5,7 @@ metadata:
   namespace: devboard
 spec:
   serviceName: database-svc                  # will review this
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       devboard: database
