@@ -20,5 +20,17 @@ spec:
           image: <image-name>                 #database image name
           ports: 
             - containerPort: <port-number>     #database port
+          env:
+            - name: MONGO_INITDB_ROOT_USERNAME
+              valueFrom:
+                secretKeyRef:
+                 name: secret
+                 key: <key-name-1>
+            - name: MONGO_INITDB_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                 name: secret
+                 key: <key-name-2>     
+           
           
    
