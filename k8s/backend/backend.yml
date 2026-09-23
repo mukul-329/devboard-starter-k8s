@@ -19,4 +19,7 @@ spec:
                image: <image-name>               #Image name from registry
                ports:
                - containerPort: <port-number>    #Container Port number to expose.
+               env: 
+                 - name: DATABASE_URL
+                   value: postgres://$():$()@database:<port-number>/devboard?sslmode=disable
   
