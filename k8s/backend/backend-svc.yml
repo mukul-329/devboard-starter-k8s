@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata: 
+  name: backend-svc
+  namespace: devboard
+spec:
+  type: ClusterIP
+  selector: 
+    devboard: backend
+  ports:
+    - protocol: TCP
+      port: <port-number>           #Internal port services needed for ClusterIP
+      targetPort: <port-number>     #Container port
