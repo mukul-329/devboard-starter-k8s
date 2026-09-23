@@ -1,0 +1,22 @@
+kind: Deployments
+apiVersion: apps/v1
+metadata:
+  name: backend
+  namespace: devboard
+spec: 
+  replicas: 1
+  selector: 
+     matchLabels:
+       devboard: backend
+  template:
+     metadata:
+       name: backend-pod
+       labels:
+          devboard: backend
+       spec:
+          containers: 
+             - name: backend-container
+               image: <image-name>               #Image name from registry
+               ports:
+               - containerPort: <port-number>    #Container Port number to expose.
+  
