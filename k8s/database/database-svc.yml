@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata: 
+  name: database-svc
+  namespace: devboard
+spec:
+  type: ClusterIP
+  selector: 
+    devboard: database
+  ports:
+    - protocol: TCP
+      port: <port-number>           #Internal port services needed for ClusterIP
+      targetPort: <port-number>     #Database Container port
